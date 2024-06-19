@@ -34,3 +34,7 @@ body{
     background-color: #2181bb;
     border-bottom-right-radius: 90%;
 }
+
+.flash {
+    background-color: white;
+}
