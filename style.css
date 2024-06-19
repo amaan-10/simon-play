@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+
+.green {
+    background-color: #3dba81;
+    border-top-left-radius: 90%;
+}
+
+.red {
+    background-color: #df404c;
+    border-top-right-radius: 90%;
+}
+
+.yellow {
+    background-color: #d8c339;
+    border-bottom-left-radius: 90%;
+}
+
+.blue {
+    background-color: #2181bb;
+    border-bottom-right-radius: 90%;
+}
