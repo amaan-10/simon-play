@@ -11,11 +11,19 @@ let h2 = document.querySelector("h2");
 document.addEventListener("keypress", function () {
   if (started == false) {
     console.log("game is started");
+
     started = true;
 
     levelUp();
   }
 });
+
+if (localStorage.getItem("score") === null) {
+  localStorage.setItem("score", 0);
+}
+
+document.getElementById("best_score").innerHTML =
+  "Highest Score is " + localStorage.getItem("score");
 
 function btnFlash(btn) {
   btn.classList.add("flash");
@@ -36,6 +44,7 @@ function levelUp() {
   gameSeq.push(randColor);
   console.log(gameSeq);
   btnFlash(randBtn);
+  updateHighscore(level);
 }
 
 function checkAns(idx) {
@@ -44,7 +53,7 @@ function checkAns(idx) {
       setTimeout(levelUp, 1000);
     }
   } else {
-    h2.innerHTML = `Game Over! Your score was <b>${level}</b><br> Press any key to start again.`;
+    h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any key to start again.`;
     document.querySelector("body").style.backgroundColor = "red";
     setTimeout(function () {
       document.querySelector("body").style.backgroundColor = "white";
@@ -67,6 +76,19 @@ function btnPress() {
 let allBtns = document.querySelectorAll(".btn");
 for (btn of allBtns) {
   btn.addEventListener("click", btnPress);
+}
+
+function updateHighscore(newScore) {
+  const oldHighscore = parseFloat(localStorage.getItem("score"));
+
+  if (oldHighscore == null || oldHighscore < newScore) {
+    localStorage.setItem("score", newScore);
+    document.getElementById("best_score").innerHTML =
+      "Highest Score is " + localStorage.getItem("score");
+  } else {
+    document.getElementById("best_score").innerHTML =
+      "Highest Score is " + localStorage.getItem("score");
+  }
 }
 
 function reset() {
