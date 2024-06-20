@@ -7,9 +7,9 @@ body{
 }
 
 .btn {
-    height: 200px;
-    width: 200px;
-    border: 10px solid black;
+    height: 180px;
+    width: 180px;
+    border: 8px solid black;
     margin-top: 2rem;
     margin-left: 2rem;
 }
